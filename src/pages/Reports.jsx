@@ -60,9 +60,7 @@ export default function Reports() {
   if (loading) {
     return (
       <div className="space-y-6">
-        <div className="flex items-center gap-3">
-          <h1 className="text-lg font-semibold text-white">Reports</h1>
-        </div>
+        <Skeleton className="h-24 rounded-xl" />
         <Skeleton className="h-12" />
         <Skeleton className="h-96" />
       </div>
@@ -71,8 +69,20 @@ export default function Reports() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <h1 className="text-lg font-semibold text-white">Reports</h1>
+      {/* Header Banner */}
+      <div
+        className="hero-banner rounded-xl"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=400&fit=crop)',
+          minHeight: '100px',
+        }}
+      >
+        <div className="flex flex-col justify-center px-6 py-6">
+          <p className="text-amber text-xs font-semibold uppercase tracking-[0.15em] mb-1.5">
+            — Analytics
+          </p>
+          <h1 className="text-lg font-display text-white">Reports</h1>
+        </div>
       </div>
 
       {/* Report Tabs */}

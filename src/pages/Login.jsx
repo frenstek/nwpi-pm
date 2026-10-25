@@ -28,26 +28,34 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-dvh flex items-center justify-center p-4 bg-void relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,133,12,0.06)_0%,_transparent_60%)]" />
-      <div className="absolute inset-0 bg-dot-grid" />
+    <div className="min-h-dvh flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Hero background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&fit=crop)' }}
+      />
+      {/* Dark cinematic overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/75 to-black/85" />
+      {/* Subtle amber radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(232,133,12,0.08)_0%,_transparent_60%)]" />
 
-      <div className="relative w-full max-w-sm animate-fade-in-up">
+      <div className="relative w-full max-w-sm animate-fade-in-up z-10">
         {/* Logo + Title */}
         <div className="flex flex-col items-center mb-8">
-          <div className="flex items-center justify-center h-16 w-16 rounded-2xl bg-gradient-to-br from-amber to-amber-dark text-white font-bold text-2xl mb-5 shadow-lg shadow-amber/20">
-            NPI
-          </div>
-          <h1 className="text-2xl font-semibold text-white mb-1">Nationwide</h1>
-          <p className="text-sm text-white/40 mb-1">Project Manager</p>
+          <img
+            src="/logo.jpeg"
+            alt="NPI Logo"
+            className="h-16 w-16 rounded-xl object-cover mb-5 shadow-lg shadow-amber/20"
+          />
+          <h1 className="text-2xl font-display text-white mb-1">Nationwide</h1>
+          <p className="text-sm font-display italic text-amber/80 mb-1">Projects & Investments</p>
           <p className="text-xs text-white/20">Construction Project Management</p>
         </div>
 
         {/* Login Card */}
         <form
           onSubmit={handleSubmit}
-          className="bg-white/[0.03] backdrop-blur-md border border-white/[0.08] rounded-2xl p-7 space-y-5 shadow-2xl shadow-black/30"
+          className="bg-white/[0.04] backdrop-blur-xl border border-white/[0.1] rounded-2xl p-7 space-y-5 shadow-2xl shadow-black/40"
         >
           {error && (
             <div className="bg-danger/10 border border-danger/20 text-danger text-sm rounded-lg px-4 py-3">

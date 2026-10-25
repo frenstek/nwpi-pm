@@ -2,7 +2,8 @@ import { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import {
   LayoutDashboard, FolderKanban, UserPlus, Users, BarChart3,
-  LogOut, X, PanelLeftClose, PanelLeft,
+  LogOut, X, PanelLeftClose, PanelLeft, Calculator, Settings, ListChecks,
+  ClipboardCheck, BookOpen, FileText, CloudUpload, Receipt,
 } from 'lucide-react'
 import { useAuth } from '../../contexts/AuthContext'
 import { cn } from '../../lib/utils'
@@ -13,6 +14,7 @@ const navGroups = [
     items: [
       { to: '/', icon: LayoutDashboard, label: 'Dashboard' },
       { to: '/projects', icon: FolderKanban, label: 'Projects' },
+      { to: '/tracker', icon: ClipboardCheck, label: 'Tracker' },
     ],
   },
   {
@@ -20,6 +22,23 @@ const navGroups = [
     items: [
       { to: '/leads', icon: UserPlus, label: 'Leads' },
       { to: '/contacts', icon: Users, label: 'Contacts' },
+      { to: '/resources', icon: BookOpen, label: 'Resources' },
+      { to: '/expense-hub', icon: Receipt, label: 'Expense Hub' },
+    ],
+  },
+  {
+    label: 'ESTIMATOR',
+    items: [
+      { to: '/estimator', icon: Calculator, label: 'Estimator' },
+      { to: '/estimator/admin', icon: Settings, label: 'Config' },
+      { to: '/inclusions', icon: ListChecks, label: 'Inclusions' },
+      { to: '/quotes', icon: FileText, label: 'Quotes' },
+    ],
+  },
+  {
+    label: 'CLIENT',
+    items: [
+      { to: '/client-uploads', icon: CloudUpload, label: 'Client Uploads' },
     ],
   },
   {
@@ -64,9 +83,11 @@ export default function Sidebar({ isOpen, onClose }) {
       >
         {/* Logo Area */}
         <div className="flex items-center gap-3 px-4 h-16 shrink-0">
-          <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-gradient-to-br from-amber to-amber-dark text-white font-bold text-sm shrink-0 shadow-sm shadow-amber/20">
-            NPI
-          </div>
+          <img
+            src="/logo.jpeg"
+            alt="NPI Logo"
+            className="h-10 w-10 rounded-lg object-cover shrink-0 shadow-sm shadow-amber/20"
+          />
           {!collapsed && (
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold text-white truncate">Nationwide</p>
@@ -82,7 +103,7 @@ export default function Sidebar({ isOpen, onClose }) {
         </div>
 
         {/* Amber accent line */}
-        <div className="mx-4 h-px bg-gradient-to-r from-amber/40 via-amber/10 to-transparent" />
+        <div className="mx-4 h-[2px] bg-gradient-to-r from-amber/50 via-amber/20 to-transparent rounded-full" />
 
         {/* Navigation */}
         <nav className="flex-1 px-3 py-4 overflow-y-auto space-y-5">

@@ -71,7 +71,7 @@ select {
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   padding: 0.625rem 1rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   line-height: 1.25rem;
   color: white;
   outline: none;
@@ -125,6 +125,24 @@ select option {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ========== Hero Banner Utility ========== */
+.hero-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.85) 100%);
+}
+.hero-banner > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ========== Page Transition ========== */

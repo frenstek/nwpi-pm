@@ -125,7 +125,7 @@ export default function Leads() {
       <div className="space-y-6">
         <div className="flex items-center gap-3">
           <UserPlus className="h-6 w-6 text-amber" />
-          <h1 className="text-xl font-semibold text-white">Leads</h1>
+          <h1 className="text-xl font-display text-white">Leads</h1>
         </div>
         <Skeleton className="h-12" />
         <Skeleton className="h-96" />
@@ -138,7 +138,7 @@ export default function Leads() {
       {/* Header */}
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <h1 className="text-lg font-semibold text-white">Leads</h1>
+          <h1 className="text-lg font-display text-white">Leads</h1>
           <span className="flex items-center justify-center h-5 min-w-5 px-1.5 rounded-full bg-white/[0.06] text-white/40 text-[10px] font-bold tabular-nums">
             {leads.length}
           </span>
@@ -183,8 +183,8 @@ export default function Leads() {
               return (
                 <div key={status} className="min-w-[260px] w-[260px] shrink-0">
                   <div className="bg-void-lighter/50 rounded-xl border border-white/[0.04] overflow-hidden">
-                    {/* Colored top border */}
-                    <div className={cn('h-0.5', topColor)} />
+                    {/* Colored top gradient band */}
+                    <div className={cn('h-[3px]', topColor)} />
                     <div className="flex items-center justify-between px-3 py-2.5">
                       <div className="flex items-center gap-2">
                         <Badge variant={cfg.color}>{cfg.label}</Badge>

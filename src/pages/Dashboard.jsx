@@ -70,6 +70,7 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div className="space-y-6">
+        <Skeleton className="h-40 rounded-xl" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {[...Array(4)].map((_, i) => (
             <Skeleton key={i} className="h-24" />
@@ -82,12 +83,23 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      {/* Welcome */}
-      <div className="mb-2">
-        <h2 className="text-lg font-semibold text-white">
-          {greeting}, <span className="capitalize">{displayName}</span>
-        </h2>
-        <p className="text-sm text-white/30">{today}</p>
+      {/* Hero Banner */}
+      <div
+        className="hero-banner rounded-xl"
+        style={{
+          backgroundImage: 'url(https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&h=400&fit=crop)',
+          minHeight: '150px',
+        }}
+      >
+        <div className="flex flex-col justify-center px-6 py-8">
+          <p className="text-amber text-xs font-semibold uppercase tracking-[0.15em] mb-2">
+            — Dashboard
+          </p>
+          <h2 className="text-xl font-display text-white mb-1">
+            {greeting}, <span className="capitalize">{displayName}</span>
+          </h2>
+          <p className="text-sm text-white/40">{today}</p>
+        </div>
       </div>
 
       {/* Stat Cards */}
@@ -143,9 +155,14 @@ export default function Dashboard() {
                   <button
                     key={project.id}
                     onClick={() => navigate(`/projects/${project.id}`)}
-                    className="w-full flex items-center justify-between px-5 py-3.5 hover:bg-white/[0.02] transition-colors text-left cursor-pointer"
+                    className="w-full flex items-center gap-4 px-5 py-3.5 hover:bg-white/[0.02] transition-colors text-left cursor-pointer"
                   >
-                    <div className="min-w-0">
+                    {/* Construction thumbnail */}
+                    <div
+                      className="h-10 w-14 rounded-lg bg-cover bg-center shrink-0 border border-white/[0.06]"
+                      style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=200&h=140&fit=crop)' }}
+                    />
+                    <div className="min-w-0 flex-1">
                       <p className="text-sm font-medium text-white truncate">{project.name}</p>
                       <p className="text-xs text-white/30 truncate">{project.address || 'No address'}</p>
                     </div>
@@ -239,6 +256,13 @@ export default function Dashboard() {
           showProject
           emptyText="No recent activity across projects"
         />
+      </div>
+
+      {/* Motivational Quote */}
+      <div className="text-center py-6">
+        <p className="font-display italic text-white/20 text-lg">
+          "Building tomorrow's landmarks, one project at a time."
+        </p>
       </div>
     </div>
   )

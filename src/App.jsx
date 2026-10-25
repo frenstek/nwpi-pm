@@ -8,7 +8,16 @@ import ProjectDetail from './pages/ProjectDetail'
 import Contacts from './pages/Contacts'
 import Leads from './pages/Leads'
 import Reports from './pages/Reports'
+import Tracker from './pages/Tracker'
+import Resources from './pages/Resources'
+import Estimator from './pages/Estimator'
+import EstimatorAdmin from './pages/EstimatorAdmin'
+import Inclusions from './pages/Inclusions'
+import Quotes from './pages/Quotes'
 import ClientPortal from './pages/ClientPortal'
+import ClientUpload from './pages/ClientUpload'
+import ClientUploadsAdmin from './pages/ClientUploadsAdmin'
+import ExpenseHub from './pages/ExpenseHub'
 import NotFound from './pages/NotFound'
 
 function AuthGuard({ children }) {
@@ -36,6 +45,7 @@ export default function App() {
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/portal/:projectId" element={<ClientPortal />} />
+      <Route path="/client-upload/:token" element={<ClientUpload />} />
       <Route
         element={
           <AuthGuard>
@@ -48,7 +58,15 @@ export default function App() {
         <Route path="projects/:id" element={<ProjectDetail />} />
         <Route path="contacts" element={<Contacts />} />
         <Route path="leads" element={<Leads />} />
+        <Route path="tracker" element={<Tracker />} />
+        <Route path="resources" element={<Resources />} />
         <Route path="reports" element={<Reports />} />
+        <Route path="estimator" element={<Estimator />} />
+        <Route path="estimator/admin" element={<EstimatorAdmin />} />
+        <Route path="inclusions" element={<Inclusions />} />
+        <Route path="quotes" element={<Quotes />} />
+        <Route path="client-uploads" element={<ClientUploadsAdmin />} />
+        <Route path="expense-hub" element={<ExpenseHub />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

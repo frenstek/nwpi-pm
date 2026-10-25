@@ -74,6 +74,14 @@ export default function Contacts() {
 
   return (
     <div className="space-y-5">
+      {/* Title with amber accent dash */}
+      <div className="mb-1">
+        <p className="text-amber text-xs font-semibold uppercase tracking-[0.15em] mb-1.5">
+          — Contacts
+        </p>
+        <h1 className="text-lg font-display text-white">Contact Directory</h1>
+      </div>
+
       <div className="flex flex-col sm:flex-row gap-3">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-white/25" />
